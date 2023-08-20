@@ -1,0 +1,85 @@
+<div id="mainpage" ng-controller="timetable">
+    
+    <h2>TimeTable</h2><br>
+
+
+    <div ng-show="sublist">
+        <form class="d-flex">
+            <input class="form-control me-sm-2" type="text" placeholder="Filter Rows"  ng-model="search" ng-change="applyFilter()">
+        </form>
+            
+        
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Subject Code</th>
+                    <th scope="col">Subject name</th>
+                    <th scope="col">Sections</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in page_data">
+                    <td>{{ item.kod_subjek }}</td>
+                    <td>{{ item.nama_subjek }}</td>
+                    <td>
+                        <table class="table table-hover">
+                            <tr>
+                                <th>Section</th>
+                                <th>Lecturer</th>
+                                <th>Timetable</th>
+                            </tr>
+                            <tr ng-repeat="section in item.seksyen_list">
+                                <td>{{ section.seksyen }}</td>
+                                <td style="width: 500px">{{ section.pensyarah }}</td>
+                                <td><button ng-click="getTimetable(item.kod_subjek, section.seksyen)" class="btn btn-primary">Timetable</button></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                                    
+            </tbody>
+        </table>
+
+        <br>
+        <div class="row fixed-bottom" style="background-color:white; margin: 0 auto; width: 25%;">
+            <div class="col">
+                <button class="btn btn-primary" ng-click="prevPage()"> Prev Page </button>
+                &nbsp; {{page_no}} / {{page_total}} &nbsp;
+                <button class="btn btn-primary" ng-click="nextPage()"> Next Page </button>
+            </div>
+        </div>
+
+    </div>
+
+    <div ng-show="ttable">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Subject Code</th>
+                    <th scope="col">Day</th>
+                    <th scope="col">TimeSlot</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in ttdata">
+                    <td>{{ item.kod_subjek }}</td>
+                    <td>{{ item.hari }}</td>
+                    <td>{{ item.masa }}</td>  
+                </tr>                
+            </tbody>
+        </table>
+        <button class="btn btn-primary" ng-click="return()">Go Back</button>
+    </div>
+
+    <div ng-show="login">
+        <h4>You are not logged in. Please login and refresh the page.</h4>
+        <a href="#!Login"><button class="btn btn-primary">Login</button></a>
+    </div>
+</div>  
+
+
+
+
+
+
+

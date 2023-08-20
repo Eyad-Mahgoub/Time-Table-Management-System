@@ -1,0 +1,43 @@
+<div id="mainpage" ng-controller="tts">
+    
+    <h2>List of Subjects</h2><br>
+
+    <a href="#!LecturerList"><button class="btn btn-primary">Go Back</button></a>
+    <br><br>
+
+    <form class="d-flex">
+        <input class="form-control me-sm-2" type="text" placeholder="Filter Rows" ng-model="search" ng-change="applyFilter()">
+    </form>
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Subject Code</th>
+                <th scope="col">Subject Name</th>
+                <th scope="col">Section</th>
+                <th scope="col">Semester</th>
+                <th scope="col">Number of Students</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="item in page_data">
+                <td>{{ item.kod_subjek }}</td>
+                <td>{{ item.nama_subjek }}</td>
+                <td>{{ item.seksyen }}</td>
+                <td>{{ item.semester }}</td> 
+                <td>{{ item.bil_pelajar }}</td> 
+            </tr>                
+        </tbody>
+    </table>
+
+    <br>
+    <div class="row fixed-bottom" style="background-color:white; margin: 0 auto; width: 25%;">
+        <div class="col">
+            <button class="btn btn-primary" ng-click="prevPage()"> Prev Page </button>
+            &nbsp; {{page_no}} / {{page_total}} &nbsp;
+            <button class="btn btn-primary" ng-click="nextPage()"> Next Page </button>
+        </div>
+    </div> 
+        
+</div>  
+    

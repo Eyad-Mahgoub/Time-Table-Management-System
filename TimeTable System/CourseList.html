@@ -1,0 +1,74 @@
+
+<div id="mainpage" ng-controller="listCourse">
+    
+    <h2>Course List</h2><br>
+
+    <div ng-show="table">
+        <form class="d-flex">
+            <input class="form-control me-sm-2" type="text" placeholder="Filter Rows" ng-model="search" ng-change="applyFilter()">
+        </form>
+
+
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Course Name</th>
+                    <th scope="col">Subject Code</th>
+                    <th scope="col">Lecturer</th>
+                    <th scope="col">Student</th>
+                    <th scope="col">Section</th>
+                    <th scope="col">Section List</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in page_data">
+                    <td>{{ item.nama_subjek }}</td>
+                    <td>{{ item.kod_subjek }}</td>
+                    <td>{{ item.bil_pensyarah }}</td>
+                    <td>{{ item.bil_pelajar }}</td>
+                    <td>{{ item.bil_seksyen }}</td>
+                    <td><button class="btn btn-primary" ng-click="getSections(item)">Sections</button></td>
+                </tr>   
+            </tbody>
+        </table>
+
+        <br>
+        <div class="row fixed-bottom" style="background-color:white; margin: 0 auto; width: 25%;">
+            <div class="col">
+                <button class="btn btn-primary" ng-click="prevPage()"> Prev Page </button>
+                &nbsp; {{page_no}} / {{page_total}} &nbsp;
+                <button class="btn btn-primary" ng-click="nextPage()"> Next Page </button>
+            </div>
+        </div>
+    </div>
+
+
+    <div ng-show="login">
+        <h4>You are not logged in. Please login and refresh the page.</h4>
+        <a href="#!Login"><button class="btn btn-primary">Login</button></a>
+    </div>
+
+    <div ng-show="details">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Section</th>
+                    <th scope="col">Lecturer Name</th>
+                    <th scope="col">Number of Students</th>
+                    <th scope="col">Student List</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in section_list">
+                    <td>{{ item.seksyen }}</td>
+                    <td>{{ item.pensyarah }}</td>
+                    <td>{{ item.bil_pelajar }}</td>
+                    <td><a href="#!CourseStudent"><button ng-click="getDetails(item.seksyen)" class="btn btn-primary">Student List</button></a></td>
+                </tr>   
+            </tbody>
+        </table>
+        <button class="btn btn-primary" ng-click="return()">Go Back</button>
+    </div>
+    
+</div>  
+    

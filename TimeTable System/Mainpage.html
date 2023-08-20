@@ -1,0 +1,94 @@
+<html>
+    <head>
+        <title>Course List</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <link rel="icon" href="Images/favicon.png" type="image/x-icon">
+        <link rel="stylesheet" href="CSS/bootstrap.min.css">        
+        <link rel="stylesheet" href="CSS/extras.css">
+    </head>
+    <body ng-app="ttApp">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#"><img src="Images/UTM-LOGO.png" width="50px" height="50px"> Timetable & Space Management System</a>
+                        
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+        
+                <div class="collapse navbar-collapse" id="navbarColor03">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#!Login">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#!StudentList">Student List</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#!LecturerList">Lecturer List</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#!ProgramList">Program List</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#!CourseList">Course List</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#!TimeTable">Time Table</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="ng-view">my life be like oo aa</div>    
+    </body>
+</html>
+<script>
+    var app = angular.module("ttApp", ["ngRoute"]);
+          
+    app.config(function($routeProvider) {
+    $routeProvider
+        .when("/Login", {
+            templateUrl : "Login.html"
+        })
+        .when("/StudentList", {
+            templateUrl : "StudentList.html"
+        })
+        .when("/LecturerList", {
+            templateUrl : "LecturerList.html"
+        })
+        .when("/ProgramList", {
+            templateUrl : "ProgramList.html"
+        })
+        .when("/CourseList", {
+            templateUrl : "CourseList.html"
+        })
+        .when("/TimeTable", {
+            templateUrl : "TimeTable.html"
+        })
+        .when("/LectSub", {
+            templateUrl : "LectSubject.html"
+        })
+        .when("/StuSub", {
+            templateUrl : "StuSubject.html"
+        })
+        .when("/CourseStudent", {
+            templateUrl : "CourseStudent.html"
+        })
+    });
+</script>
+
+<script src="javascript/Login.js"></script>
+<script src="javascript/CourseList.js"></script>
+<script src="javascript/LecturerList.js"></script>
+<script src="javascript/ProgramList.js"></script>
+<script src="javascript/StudentList.js"></script>
+<script src="javascript/Timetable.js"></script>
+<script src="javascript/LectSubject.js"></script>
+<script src="javascript/StuSubject.js"></script>
+<script src="javascript/CourseStudent.js"></script>
